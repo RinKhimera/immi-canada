@@ -54,7 +54,7 @@ export const SiteHeader = () => {
       <NavigationMenu>
         <NavigationMenuList>
           {menuItems.map((item) => {
-            const isActive = pathname.startsWith(item.href)
+            const isActive = pathname === item.href
 
             return (
               <NavigationMenuItem key={item.href}>
