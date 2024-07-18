@@ -13,45 +13,19 @@ import {
   navigationMenuTriggerStyle,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
+import { menuItems, socialLinks } from "@/constants"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { FaGithub, FaLinkedin } from "react-icons/fa"
-import { FaXTwitter } from "react-icons/fa6"
+import { MobileMenu } from "./mobile-menu"
 
 export const SiteHeader = () => {
   const pathname = usePathname()
 
-  const menuItems = [
-    { href: "/", label: "Accueil" },
-    { href: "/calculator", label: "Calculatrice" },
-    { href: "/faq", label: "FAQ" },
-    { href: "/acronyms", label: "Abréviations" },
-    { href: "/chatting", label: "Clavardage" },
-    { href: "/about", label: "A Propos" },
-  ]
-
-  const socialLinks = [
-    {
-      href: "https://github.com/RinKhimera/immi-canada",
-      ariaLabel: "GitHub",
-      icon: <FaGithub size={20} />,
-    },
-    {
-      href: "https://www.linkedin.com/in/samuel-pokam/",
-      ariaLabel: "LinkedIn",
-      icon: <FaLinkedin size={22} />,
-    },
-    {
-      href: "https://x.com/rin_khimera",
-      ariaLabel: "X",
-      icon: <FaXTwitter size={20} />,
-    },
-  ]
-
   return (
-    <header className="py-2 mx-10 flex justify-between sticky top-0 z-20 backdrop-blur">
-      <NavigationMenu>
+    <header className="py-2 flex justify-between sticky top-0 z-20 backdrop-blur">
+      {/* Desktop Menu */}
+      <NavigationMenu className="max-lg:hidden">
         <NavigationMenuList>
           {menuItems.map((item) => {
             const isActive = pathname === item.href
@@ -62,7 +36,7 @@ export const SiteHeader = () => {
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "text-muted-foreground",
+                      "text-muted-foreground bg-transparent",
                       { "text-accent-foreground": isActive }
                     )}
                   >
@@ -74,6 +48,9 @@ export const SiteHeader = () => {
           })}
         </NavigationMenuList>
       </NavigationMenu>
+
+      {/* Mobile Menu */}
+      <MobileMenu />
 
       <div className="flex">
         {socialLinks.map(({ href, ariaLabel, icon }) => (

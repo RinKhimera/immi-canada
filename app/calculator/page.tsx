@@ -1,18 +1,19 @@
 import { TcfCard } from "@/components/calculator/tcf-card"
+import { TefCard } from "@/components/calculator/tef-card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TriangleAlert } from "lucide-react"
 
 const CalculatorPage = () => {
   const tabItems = [
-    { value: "TCF", label: "TCF Canada / Quebec" },
-    { value: "TEF", label: "TEF Canada / TEFAQ" },
+    { value: "TCF", label: "TCF" },
+    { value: "TEF", label: "TEF" },
     { value: "IELTS", label: "IELTS" },
   ]
 
   return (
-    <main className="min-h-screen px-24 py-12">
-      <section>
-        <h1 className="text-4xl max-w-3xl font-medium">
+    <main className="min-h-screen xl:px-16 py-12">
+      <section className="flex flex-col items-center text-center">
+        <h1 className="text-3xl lg:text-4xl max-w-3xl font-medium">
           Cet outil vous aide à déterminer l&apos;admissibilité de vos tests de
           langue aux programmes{" "}
           <span className="text-primary font-bold">Entrée Express</span> et{" "}
@@ -27,18 +28,21 @@ const CalculatorPage = () => {
           Benchmarks) pour l&apos;anglais.
         </h3>
 
-        <h3 className="flex items-center text-lg gap-2 mt-5 max-w-xl">
-          <TriangleAlert size={80} className="text-primary" />
+        <h3 className="flex flex-col items-center text-lg gap-2 mt-6 max-w-2xl">
+          <TriangleAlert size={40} className="text-primary" />
           <div>
-            Veuillez noter que le niveau minimum pour les quatre compétences
-            linguistiques (CE, CO, EE, EO) est le{" "}
+            Veuillez noter que le niveau{" "}
+            <span className="text-primary font-bold">
+              minimum d&apos;admissibilité
+            </span>{" "}
+            pour les quatre compétences linguistiques (CE, CO, EE, EO) est le{" "}
             <span className="text-primary font-bold">NCLC / CLB 7</span>
           </div>
         </h3>
       </section>
 
-      <section className="container">
-        <h1 className="text-5xl mx-auto mt-10 font-medium max-w-xl text-center">
+      <section className="">
+        <h1 className="text-4xl lg:text-5xl  mx-auto mt-16 font-medium max-w-xl text-center">
           Quel résultat allons-nous évaluer aujourd&apos;hui ?
         </h1>
 
@@ -62,7 +66,9 @@ const CalculatorPage = () => {
             <TabsContent value="TCF">
               <TcfCard />
             </TabsContent>
-            <TabsContent value="TEF">Change your password here.</TabsContent>
+            <TabsContent value="TEF">
+              <TefCard />
+            </TabsContent>
             <TabsContent value="IELTS">
               Make changes to your account here.
             </TabsContent>

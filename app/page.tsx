@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="min-h-screen px-24 pt-12">
+    <main className="min-h-screen xl:px-16 pt-12">
       <h1 className="text-7xl max-w-2xl font-medium">
         Votre guide complet pour réussir votre immigration au Canada
       </h1>

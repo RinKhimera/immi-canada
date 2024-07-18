@@ -12,31 +12,31 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import {
-  tcfListeningNCLC,
-  tcfReadingNCLC,
-  tcfSpeakingWritingNCLC,
-} from "@/hooks/tcf-nclc-ranges"
-import { tcfSchema } from "@/validations/tcf-schema"
+  tefListeningNCLC,
+  tefReadingNCLC,
+  tefSpeakingWritingNCLC,
+} from "@/hooks/tef-nclc-ranges"
+import { tefSchema } from "@/validations/tef-schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RotateCcw } from "lucide-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-export const TcfCard = () => {
+export const TefCard = () => {
   const [NCLCScore, setNCLCScore] = useState<number | null>(null)
   const [NCLClistening, setNCLCListening] = useState<number | null>(null)
   const [NCLCreading, setNCLCReading] = useState<number | null>(null)
   const [NCLCspeaking, setNCLCSpeaking] = useState<number | null>(null)
   const [NCLCwriting, setNCLCWriting] = useState<number | null>(null)
 
-  const form = useForm<z.infer<typeof tcfSchema>>({
-    resolver: zodResolver(tcfSchema),
+  const form = useForm<z.infer<typeof tefSchema>>({
+    resolver: zodResolver(tefSchema),
     defaultValues: {
-      listening: 331,
-      reading: 342,
-      speaking: 4,
-      writing: 4,
+      listening: 145,
+      reading: 121,
+      speaking: 181,
+      writing: 181,
     },
   })
 
@@ -83,11 +83,11 @@ export const TcfCard = () => {
     }
   }
 
-  const onSubmit = (values: z.infer<typeof tcfSchema>) => {
-    const listeningScore = tcfListeningNCLC(values.listening)
-    const readingScore = tcfReadingNCLC(values.reading)
-    const speakingScore = tcfSpeakingWritingNCLC(values.speaking)
-    const writingScore = tcfSpeakingWritingNCLC(values.writing)
+  const onSubmit = (values: z.infer<typeof tefSchema>) => {
+    const listeningScore = tefListeningNCLC(values.listening)
+    const readingScore = tefReadingNCLC(values.reading)
+    const speakingScore = tefSpeakingWritingNCLC(values.speaking)
+    const writingScore = tefSpeakingWritingNCLC(values.writing)
 
     const lowestScore = Math.min(
       listeningScore,
@@ -124,7 +124,7 @@ export const TcfCard = () => {
     <Card className="dark:border-muted">
       <CardHeader className="text-center">
         <CardTitle className="text-3xl underline underline-offset-4 decoration-primary">
-          TCF Canada / TCF Québec / TCF
+          TEF Canada / TEFAQ / TEF
         </CardTitle>
       </CardHeader>
       <CardContent>
