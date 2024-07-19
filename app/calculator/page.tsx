@@ -1,3 +1,4 @@
+import { IeltsCard } from "@/components/calculator/ielts-card"
 import { TcfCard } from "@/components/calculator/tcf-card"
 import { TefCard } from "@/components/calculator/tef-card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -70,7 +71,7 @@ const CalculatorPage = () => {
               <TefCard />
             </TabsContent>
             <TabsContent value="IELTS">
-              Make changes to your account here.
+              <IeltsCard />
             </TabsContent>
           </Tabs>
         </div>

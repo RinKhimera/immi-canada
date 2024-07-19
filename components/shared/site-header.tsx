@@ -1,17 +1,13 @@
 "use client"
 
 import { ModeToggle } from "@/components/theme-toggle"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 import { menuItems, socialLinks } from "@/constants"
 import { cn } from "@/lib/utils"
@@ -24,7 +20,7 @@ export const SiteHeader = () => {
 
   return (
     <header className="py-2 flex justify-between sticky top-0 z-20 backdrop-blur">
-      {/* Desktop Menu */}
+      {/* Desktop Navigation */}
       <NavigationMenu className="max-lg:hidden">
         <NavigationMenuList>
           {menuItems.map((item) => {
@@ -49,7 +45,7 @@ export const SiteHeader = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
       <MobileMenu />
 
       <div className="flex">
@@ -65,6 +61,7 @@ export const SiteHeader = () => {
             {icon}
           </Link>
         ))}
+
         <ModeToggle />
       </div>
     </header>

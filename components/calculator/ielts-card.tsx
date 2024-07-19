@@ -12,31 +12,31 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import {
-  tefListeningNCLC,
-  tefReadingNCLC,
-  tefSpeakingWritingNCLC,
-} from "@/hooks/tef-nclc-ranges"
-import { tefSchema } from "@/validations/tef-schema"
+  ieltsListeningCLB,
+  ieltsReadingCLB,
+  ieltsSpeakingWritingCLB,
+} from "@/hooks/ielts-clb-ranges"
+import { ieltsSchema } from "@/validations/ielts-schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RotateCcw } from "lucide-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-export const TefCard = () => {
-  const [NCLCScore, setNCLCScore] = useState<number | null>(null)
-  const [NCLClistening, setNCLCListening] = useState<number | null>(null)
-  const [NCLCreading, setNCLCReading] = useState<number | null>(null)
-  const [NCLCspeaking, setNCLCSpeaking] = useState<number | null>(null)
-  const [NCLCwriting, setNCLCWriting] = useState<number | null>(null)
+export const IeltsCard = () => {
+  const [CLBScore, setCLBScore] = useState<number | null>(null)
+  const [CLBlistening, setCLBListening] = useState<number | null>(null)
+  const [CLBreading, setCLBReading] = useState<number | null>(null)
+  const [CLBspeaking, setCLBSpeaking] = useState<number | null>(null)
+  const [CLBwriting, setCLBWriting] = useState<number | null>(null)
 
-  const form = useForm<z.infer<typeof tefSchema>>({
-    resolver: zodResolver(tefSchema),
+  const form = useForm<z.infer<typeof ieltsSchema>>({
+    resolver: zodResolver(ieltsSchema),
     defaultValues: {
-      listening: 145,
-      reading: 121,
-      speaking: 181,
-      writing: 181,
+      listening: 4.5,
+      reading: 3.5,
+      speaking: 4,
+      writing: 4,
     },
   })
 
@@ -46,10 +46,10 @@ export const TefCard = () => {
   }
 
   const formFields: FormField[] = [
-    { name: "listening", label: "Compréhension orale" },
-    { name: "reading", label: "Compréhension écrite" },
-    { name: "speaking", label: "Expression orale" },
-    { name: "writing", label: "Expression écrite" },
+    { name: "listening", label: "Listening" },
+    { name: "reading", label: "Reading" },
+    { name: "speaking", label: "Speaking" },
+    { name: "writing", label: "Writing" },
   ]
 
   const getNCLCValueByName = (name: string) => {
@@ -57,25 +57,25 @@ export const TefCard = () => {
       case "listening":
         return (
           <>
-            NCLC <span className="text-primary">{NCLClistening}</span>
+            CLB <span className="text-primary">{CLBlistening}</span>
           </>
         )
       case "reading":
         return (
           <>
-            NCLC <span className="text-primary">{NCLCreading}</span>
+            CLB <span className="text-primary">{CLBreading}</span>
           </>
         )
       case "speaking":
         return (
           <>
-            NCLC <span className="text-primary">{NCLCspeaking}</span>
+            CLB <span className="text-primary">{CLBspeaking}</span>
           </>
         )
       case "writing":
         return (
           <p>
-            NCLC <span className="text-primary">{NCLCwriting}</span>
+            CLB <span className="text-primary">{CLBwriting}</span>
           </p>
         )
       default:
@@ -83,11 +83,11 @@ export const TefCard = () => {
     }
   }
 
-  const onSubmit = (values: z.infer<typeof tefSchema>) => {
-    const listeningScore = tefListeningNCLC(values.listening)
-    const readingScore = tefReadingNCLC(values.reading)
-    const speakingScore = tefSpeakingWritingNCLC(values.speaking)
-    const writingScore = tefSpeakingWritingNCLC(values.writing)
+  const onSubmit = (values: z.infer<typeof ieltsSchema>) => {
+    const listeningScore = ieltsListeningCLB(values.listening)
+    const readingScore = ieltsReadingCLB(values.reading)
+    const speakingScore = ieltsSpeakingWritingCLB(values.speaking)
+    const writingScore = ieltsSpeakingWritingCLB(values.writing)
 
     const lowestScore = Math.min(
       listeningScore,
@@ -96,11 +96,11 @@ export const TefCard = () => {
       writingScore
     )
 
-    setNCLCListening(listeningScore)
-    setNCLCReading(readingScore)
-    setNCLCSpeaking(speakingScore)
-    setNCLCWriting(writingScore)
-    setNCLCScore(lowestScore)
+    setCLBListening(listeningScore)
+    setCLBReading(readingScore)
+    setCLBSpeaking(speakingScore)
+    setCLBWriting(writingScore)
+    setCLBScore(lowestScore)
 
     console.log({ listeningScore, readingScore, speakingScore, writingScore })
   }
@@ -113,18 +113,18 @@ export const TefCard = () => {
       writing: 4,
     })
 
-    setNCLCScore(null)
-    setNCLCListening(null)
-    setNCLCReading(null)
-    setNCLCSpeaking(null)
-    setNCLCWriting(null)
+    setCLBScore(null)
+    setCLBListening(null)
+    setCLBReading(null)
+    setCLBSpeaking(null)
+    setCLBWriting(null)
   }
 
   return (
     <Card className="dark:border-muted">
       <CardHeader className="text-center">
         <CardTitle className="text-3xl underline underline-offset-4 decoration-primary">
-          TEF Canada / TEFAQ / TEF
+          IELTS General
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -147,6 +147,7 @@ export const TefCard = () => {
                         <Input
                           className="text-center text-2xl font-bold"
                           type="number"
+                          step="0.5"
                           {...field}
                         />
                       </FormControl>
@@ -156,7 +157,7 @@ export const TefCard = () => {
                 />
 
                 <>
-                  {NCLCScore !== null && (
+                  {CLBScore !== null && (
                     <div className="w-24 pb-1.5 text-lg font-bold lg:w-28 lg:text-2xl text-nowrap">
                       {getNCLCValueByName(name)}
                     </div>
@@ -181,9 +182,9 @@ export const TefCard = () => {
         </Form>
 
         <>
-          {NCLCScore !== null && (
+          {CLBScore !== null && (
             <div className="mt-5 text-center text-3xl font-bold text-primary underline lg:text-5xl">
-              <p>NCLC {NCLCScore}</p>
+              <p>NCLC {CLBScore}</p>
             </div>
           )}
         </>
