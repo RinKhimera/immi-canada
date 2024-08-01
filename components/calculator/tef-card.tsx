@@ -107,10 +107,10 @@ export const TefCard = () => {
 
   const resetScore = () => {
     form.reset({
-      listening: 331,
-      reading: 342,
-      speaking: 4,
-      writing: 4,
+      listening: 145,
+      reading: 121,
+      speaking: 181,
+      writing: 181,
     })
 
     setNCLCScore(null)

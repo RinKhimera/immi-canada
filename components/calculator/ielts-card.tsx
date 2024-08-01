@@ -52,7 +52,7 @@ export const IeltsCard = () => {
     { name: "writing", label: "Writing" },
   ]
 
-  const getNCLCValueByName = (name: string) => {
+  const getCLBValueByName = (name: string) => {
     switch (name) {
       case "listening":
         return (
@@ -107,8 +107,8 @@ export const IeltsCard = () => {
 
   const resetScore = () => {
     form.reset({
-      listening: 331,
-      reading: 342,
+      listening: 4.5,
+      reading: 3.5,
       speaking: 4,
       writing: 4,
     })
@@ -159,7 +159,7 @@ export const IeltsCard = () => {
                 <>
                   {CLBScore !== null && (
                     <div className="w-24 pb-1.5 text-lg font-bold lg:w-28 lg:text-2xl text-nowrap">
-                      {getNCLCValueByName(name)}
+                      {getCLBValueByName(name)}
                     </div>
                   )}
                 </>
@@ -184,7 +184,7 @@ export const IeltsCard = () => {
         <>
           {CLBScore !== null && (
             <div className="mt-5 text-center text-3xl font-bold text-primary underline lg:text-5xl">
-              <p>NCLC {CLBScore}</p>
+              <p>CLB {CLBScore}</p>
             </div>
           )}
         </>
