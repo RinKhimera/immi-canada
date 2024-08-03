@@ -21,6 +21,7 @@ import {
 } from "@tanstack/react-table"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useState } from "react"
+import { DataTablePagination } from "./table-pagination"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -130,7 +131,7 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
 
-      <div className="flex items-center justify-end space-x-2 py-4">
+      {/* <div className="flex items-center justify-end space-x-2 py-4">
         <Button
           variant="outline"
           size="icon"
@@ -147,7 +148,8 @@ export function DataTable<TData, TValue>({
         >
           <ChevronRight />
         </Button>
-      </div>
+      </div> */}
+      <DataTablePagination table={table} />
     </div>
   )
 }
