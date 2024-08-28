@@ -30,6 +30,28 @@ export const socialLinks = [
   },
 ]
 
+export const faqData = [
+  {
+    id: "item-1",
+    question: "C'est quoi le NCLC ?",
+    answer:
+      "Le NCLC ou Niveaux de Compétence Linguistique Canadiens, est un système utilisé pour évaluer et comparer votre compétence linguistique. Il aide à savoir si vos résultats aux tests de langue étrangère sont suffisants pour répondre aux normes canadiennes en terme d'immigration, d'études ou d'emploi.",
+  },
+  {
+    id: "item-2",
+    question: "Mon résultat est-il éligible à Entrée Express / Arrima ?",
+    answer:
+      "Un score NCLC d'au moins 7 est requis pour être admissible à l'un ou l'autre des deux programmes.",
+  },
+  {
+    id: "item-3",
+    question: "Is it animated?",
+    answer:
+      "Yes. It's animated by default, but you can disable it if you prefer.",
+  },
+  // Add more questions and answers here
+]
+
 export const acronymsDefinitions: Acronyms[] = [
   {
     id: uuidv4(),
