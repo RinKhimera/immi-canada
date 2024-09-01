@@ -34,20 +34,90 @@ export const faqData = [
   {
     id: "item-1",
     question: "C'est quoi le NCLC ?",
-    answer:
-      "Le NCLC ou Niveaux de Compétence Linguistique Canadiens, est un système utilisé pour évaluer et comparer votre compétence linguistique. Il aide à savoir si vos résultats aux tests de langue étrangère sont suffisants pour répondre aux normes canadiennes en terme d'immigration, d'études ou d'emploi.",
+    answer: (
+      <>
+        Le NCLC ou Niveaux de Compétence Linguistique Canadiens, est un système
+        utilisé pour évaluer et comparer votre compétence linguistique. Il aide
+        à savoir si vos résultats aux tests de langue étrangère sont suffisants
+        pour répondre aux normes canadiennes en terme d'immigration, d'études ou
+        d&apos;emploi.
+      </>
+    ),
   },
   {
     id: "item-2",
     question: "Mon résultat est-il éligible à Entrée Express / Arrima ?",
-    answer:
-      "Un score NCLC d'au moins 7 est requis pour être admissible à l'un ou l'autre des deux programmes.",
+    answer: (
+      <>
+        Pour le Programme des travailleurs qualifiés, un score{" "}
+        <span className="text-primary">NCLC d&apos;au moins 7</span> est requis
+        pour être admissible à l&apos;un ou l&apos;autre des deux programmes.
+      </>
+    ),
   },
   {
     id: "item-3",
-    question: "Is it animated?",
-    answer:
-      "Yes. It's animated by default, but you can disable it if you prefer.",
+    question: "Quels sont les tests de langue reconnus par le MIFI ?",
+    answer: (
+      <ul className="list-decimal">
+        <li>
+          Test de connaissance du français pour le Québec{" "}
+          <span className="text-primary">(TCF-Québec)</span>
+        </li>
+        <li>
+          Test de connaissance du français pour le Canada{" "}
+          <span className="text-primary">(TCF-Canada)</span>
+        </li>
+        <li>
+          Test de connaissance du français{" "}
+          <span className="text-primary">(TCF)</span>
+        </li>
+        <li>
+          Diplôme approfondi de langue française{" "}
+          <span className="text-primary">(DALF)</span>
+        </li>
+        <li>
+          Diplôme d’études en langue française{" "}
+          <span className="text-primary">(DELF)</span>
+        </li>
+        <li>
+          Test d’évaluation du français adapté pour le Québec{" "}
+          <span className="text-primary">(TEFAQ)</span>
+        </li>
+        <li>
+          Test d’évaluation du français pour le Canada{" "}
+          <span className="text-primary">(TEF Canada)</span>
+        </li>
+        <li>
+          Test d’évaluation du français{" "}
+          <span className="text-primary">(TEF)</span>
+        </li>
+        <li>
+          International English Language Testing System{" "}
+          <span className="text-primary">(IELTS)</span>
+        </li>
+      </ul>
+    ),
+  },
+  {
+    id: "item-4",
+    question: "Quels sont les tests de langue reconnus par IRCC ?",
+    answer: (
+      <ul className="list-decimal">
+        <li>
+          Test de connaissance du français pour le Canada{" "}
+          <span className="text-primary">(TCF-Canada)</span>
+        </li>
+        <li>
+          Test d’évaluation du français pour le Canada{" "}
+          <span className="text-primary">(TEF Canada)</span>
+        </li>
+        <li>
+          International English Language Testing System{" "}
+          <span className="text-primary">(IELTS)</span>
+        </li>
+      </ul>
+    ),
   },
   // Add more questions and answers here
 ]
@@ -62,6 +132,12 @@ export const acronymsDefinitions: Acronyms[] = [
     id: uuidv4(),
     acronym: "MPQ",
     definition: "Mon Projet Québec",
+  },
+  {
+    id: uuidv4(),
+    acronym: "MIFI",
+    definition:
+      "Ministère de l'Immigration, de la Francisation et de l'Intégration",
   },
   {
     id: uuidv4(),
@@ -137,6 +213,11 @@ export const acronymsDefinitions: Acronyms[] = [
     id: uuidv4(),
     acronym: "TEF",
     definition: "Test d’Évaluation de Français",
+  },
+  {
+    id: uuidv4(),
+    acronym: "TEFAQ",
+    definition: "Test d’évaluation du Français adapté pour le Québec",
   },
   {
     id: uuidv4(),

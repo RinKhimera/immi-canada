@@ -8,7 +8,7 @@ import { faqData } from "@/constants"
 
 const FaqPage = () => {
   return (
-    <main className="min-h-screen xl:px-16 pt-12">
+    <main className="min-h-screen xl:px-16 pt-12 magicpattern">
       <section className="flex flex-col items-center text-center">
         <h1 className="text-3xl lg:text-4xl max-w-3xl text-center font-medium">
           Retrouvez ici les questions les plus fréquemment posées
@@ -26,7 +26,7 @@ const FaqPage = () => {
               <AccordionTrigger className="text-xl">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="text-base">
+              <AccordionContent className="text-base text-muted-foreground">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>

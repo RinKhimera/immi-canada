@@ -10,7 +10,7 @@ const AcronymsPage = () => {
           Tout ce que vous devez savoir sur les{" "}
           <span className="text-primary font-bold">sigles </span>
           et <span className="text-primary font-bold">abréviations </span>
-          en un seul endroit!
+          en un seul endroit !
         </h1>
       </section>
 
